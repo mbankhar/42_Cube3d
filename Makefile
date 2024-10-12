@@ -6,7 +6,7 @@
 #    By: mbankhar <mbankhar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/23 11:29:41 by rchavez@stu       #+#    #+#              #
-#    Updated: 2024/10/04 14:56:05 by mbankhar         ###   ########.fr        #
+#    Updated: 2024/10/12 18:01:26 by mbankhar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,7 +38,7 @@ CFILES = main.c maps.c maps_fill.c player.c rays.c hook.c minimap.c utils.c\
 
 OFILES = $(CFILES:%.c=$(O_F)/%.o)
 
-all : $(NAME)
+all : submodule_init_update $(NAME)
 
 $(NAME) : $(MLX) $(LIBFT) $(PLANE) $(OFILES)
 	$(CC) $(CFLAGS) -o $(NAME) $(LFLAGS) $(MLX) $(OFILES) $(LIBFT) $(PLANE)
@@ -72,6 +72,10 @@ $(O_F) :
 $(MLXLIB) :
 	@touch .gitmodules
 	@git submodule add -f https://github.com/codam-coding-college/MLX42.git
+
+submodule_init_update:
+	@git submodule init
+	@git submodule update
 
 clean :
 	@rm -fr $(O_F)
