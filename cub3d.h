@@ -6,7 +6,7 @@
 /*   By: mbankhar <mbankhar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 11:51:48 by rchavez@stu       #+#    #+#             */
-/*   Updated: 2024/10/12 14:07:43 by mbankhar         ###   ########.fr       */
+/*   Updated: 2024/10/21 14:53:06 by mbankhar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,7 +120,6 @@ int		load_gun(t_object *object, t_cub *cub);
 void	draw_gun(t_object *object, t_cub *cub);
 void	free_gun(t_object obj, t_cub cub);
 t_fixed	relative_x(u_int32_t x, t_cub *cub);
-void 	setup_mouse(t_cub* cub);
 
 // Raycaster
 t_crash	cast_ray(t_ray ray);
@@ -133,7 +132,6 @@ int		player_access(t_fixed x, t_fixed y, t_plane *plane);
 int		frame_function(void);
 void	cur_hook(double xpos, double ypos, void *tcub);
 
-// void	flood_fill(t_cub *cub, t_point p, uint32_t limit, uint32_t fill);
 void	pcopy(t_point *dst, t_point src);
 int		is_spc(int c);
 int		line_fill(char *line, t_object *obj);

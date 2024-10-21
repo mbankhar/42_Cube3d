@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rchavez <rchavez@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: mbankhar <mbankhar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 11:36:45 by rchavez@stu       #+#    #+#             */
-/*   Updated: 2024/10/21 12:22:30 by rchavez          ###   ########.fr       */
+/*   Updated: 2024/10/21 14:51:25 by mbankhar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,10 +70,10 @@ void	init_mlx(t_cub *cub)
 		mlx_exit(cub);
 }
 
-void	check_leaks(void)
-{
-	system("leaks Cub3D");
-}
+// void	check_leaks(void)
+// {
+// 	system("leaks Cub3D");
+// }
 
 uint32_t	convert_color(char *str)
 {
@@ -98,6 +98,7 @@ uint32_t	convert_color(char *str)
 	final_number = (final_number << 8) | 255;
 	return (final_number);
 }
+	// atexit(check_leaks);
 
 int	main(int argc, char **argv)
 {
@@ -116,7 +117,6 @@ int	main(int argc, char **argv)
 		return (err("Incorrect number of arguments.\n"), 1);
 	if (obj_init(&obj, &cub, argv[1]) < 0)
 		return (err("Invalid Map.\n"), destroy_plane(cub.map), link_free(), 1);
-	atexit(check_leaks);
 	init_mlx(&cub);
 	draw_background(&cub, convert_color(obj.floor), convert_color(obj.ceiling));
 	load_gun(&obj, &cub);
