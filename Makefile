@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mbankhar <mbankhar@student.42.fr>          +#+  +:+       +#+         #
+#    By: rchavez <rchavez@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/23 11:29:41 by rchavez@stu       #+#    #+#              #
-#    Updated: 2024/10/12 18:01:26 by mbankhar         ###   ########.fr        #
+#    Updated: 2024/10/21 12:08:38 by rchavez          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -76,6 +76,7 @@ $(MLXLIB) :
 submodule_init_update:
 	@git submodule init
 	@git submodule update
+	cd $(MLXLIB) && git checkout 4c275721d0de1a9c514c857c29e9dd235d874591
 
 clean :
 	@rm -fr $(O_F)

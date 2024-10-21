@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   maps_fill.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbankhar <mbankhar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rchavez <rchavez@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 15:13:14 by rchavez@stu       #+#    #+#             */
-/*   Updated: 2024/10/04 16:06:51 by mbankhar         ###   ########.fr       */
+/*   Updated: 2024/10/21 12:25:52 by rchavez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,10 @@ int	extract_grid(t_cub *map, int fd)
 
 	str = extract_chars(fd);
 	if (!str || player_check(str) < 0)
+	{
+		err("Wrong Player count or map.\n");
 		exit(-1);
+	}
 	map->map = build_plane(str, 0, 0);
 	if (!map->map)
 		return (free_chars(str), -1);
